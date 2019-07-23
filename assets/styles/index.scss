@@ -1,1 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
+@import './theme.scss';
+@import './modal.scss';
+.hide {
+  display: none;
+}

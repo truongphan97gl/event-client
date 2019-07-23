@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Event Saver</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,113 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Event Saver</h1>
+
+      <div id="message" class="alert alert-primary"></div>
+
+      <div id="out">
+        <div class="form-group">
+            <form id="sign-up">
+              <input class="form-control" name="credentials[email]" type="text" placeholder="email" >
+              <input class="form-control" name="credentials[password]" type="password" placeholder="password">
+              <input class="form-control" name="credentials[password_confirmation]" type="password" placeholder="password">
+              <button class="btn btn-secondary" type='submit'> Sign Up </button>
+            </form>
+          </div>
+
+          <div class="form-group">
+            <form id="sign-in">
+              <input class="form-control" name="credentials[email]" type="text" placeholder="email">
+              <input class="form-control" name="credentials[password]" type="password" placeholder="password">
+              <button class="btn btn-secondary" type='submit'> Sign IN </button>
+            </form>
+          </div>
+        </div> <!-- End of outside section-->
+
+        <div id='in' class="hide">
+          <!-- change password -->
+          <div class="form-group">
+            <form id="change-password">
+              <input class="form-control" type="password" name="passwords[old]" placeholder="Old Password">
+              <input class="form-control" type="password" name="passwords[new]" placeholder="New Password">
+              <button class="btn btn-secondary" type='submit'> Change </button>
+            </form>
+          </div>
+          <!-- signout -->
+          <div class="form-group">
+            <form id="sign-out" >
+              <button class="btn btn-secondary">Sign-Out</button>
+            </form>
+            <button id="create-test" class="btn btn-secondary">Create Event</button>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="form-group">
+                  <form id="create-event">
+                    <input class="form-control" name="event[name]" type="text" placeholder="name" >
+                    <input class="form-control" name="event[date]" type="text" placeholder="date" >
+                    <input class="form-control" name="event[duration]" type="text" placeholder="duration" >
+                    <input class="form-control" name="event[place]" type="text" placeholder="place" >
+                    <input class="form-control" name="event[note]" type="text" placeholder="note" >
+                    <button class="btn btn-secondary">Create-Event</button>
+                  </form>
+                </div>
+              </div>
+
+
+            </div> <!-- end of my modal-->
+            <button id="show-button" class="btn btn-secondary">Find an Event</button>
+
+            <!-- The Modal -->
+            <div id="show-modal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="form-group">
+                  <form id="show-event-form">
+                    <input class="form-control" id="id_event" type="text" placeholder="Name of event" >
+                    <button class="btn btn-secondary">Get-Event</button>
+                  </form>
+                </div>
+              </div>
+
+
+            </div> <!-- end of my modal-->
+
+
+            <div id="edit-event" class="modal"> <!-- edit modal-->
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="form-group">
+                  <form id="edit-event-form">
+                    <input id="inputEditName" class="form-control" name="event[name]" type="text" placeholder="name" >
+                    <input id="inputEditDate" class="form-control" name="event[date]" type="text" placeholder="date" >
+                    <input id="inputEditDuration" class="form-control" name="event[duration]" type="text" placeholder="duration" >
+                    <input id="inputEditPlace" class="form-control" name="event[place]" type="text" placeholder="place" >
+                    <input id="inputEditNote" class="form-control" name="event[note]" type="text" placeholder="note" >
+                    <button class="btn btn-secondary" >Edit-Event</button>
+                  </form>
+                </div>
+              </div>
+            </div> <!-- end of edit modal-->
+
+          </div>
+
+          <div>
+            <button class="btn btn-secondary" id="get-all">Get all</button>
+          </div>
+        </div> <!-- end of inside group -->
+
+        <main>
+          <div id="content" class="content"></div>
+        </main>
+
     </body>
+
+
+
 </html>

@@ -1,0 +1,40 @@
+<section data-id="{{event.id}}">
+  <div class="item">
+    <h6>Name:</h6>
+    <h3>
+      {{#if event.name}}
+        {{event.name}}
+      {{else}}
+        No name provided.
+      {{/if}}
+    </h3>
+  </div>
+  <h6>Date:</h6>
+  <h3>
+    {{#if event.date}}
+      {{event.date}}
+    {{else}}
+      No date provided.
+    {{/if}}
+  </h3>
+  <h6>Duration:</h6>
+  <h3>
+    {{#if event.duration}}
+      {{event.duration}}
+    {{else}}
+      No duration provided.
+    {{/if}}
+  </h3>
+  <h6>Note:</h6>
+  <p>
+    {{#if event.note}}
+      {{event.note}}
+    {{else}}
+      No note provided.
+    {{/if}}
+  </p>
+  <!-- <button class="btn btn-danger" data-id="{{book.id}}">
+    Remove
+  </button> -->
+  <button data-id="{{event.id}}" class="edit-button">EDIT EVENT!</button>
+  <button data-id="{{event.id}}" class="remove-button">DELETE EVENT!</button>
