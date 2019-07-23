@@ -25,6 +25,7 @@ const signInSuccessful = responseData => {
       store.all = responseData
       console.log(store.all)
     })
+  $('.content').empty()
   $('#in').removeClass('hide')
   $('#out').addClass('hide')
   // show some things
@@ -40,6 +41,8 @@ const signOutSuccessful = () => {
   $('#in').addClass('hide')
   $('#out').removeClass('hide')
   $('form').trigger('reset')
+  api.signOut()
+    .then(signOutAuto)
 }
 
 const signOutFailure = () => {
@@ -50,6 +53,9 @@ const signOutAuto = () => {
 }
 const changeSuccessful = responseData => {
   $('#message').text('You are changed password successfully')
+  $('#in').addClass('hide')
+  $('#out').removeClass('hide')
+  $('form').trigger('reset')
   api.signOut()
     .then(signOutAuto)
   $('form').trigger('reset')

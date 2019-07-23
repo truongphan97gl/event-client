@@ -12,6 +12,9 @@ const onCreateEvent = event => {
   api.createEvent(data)
     .then(ui.createEventSuccess)
     .catch(ui.createEventFailure)
+    .then(() => {
+      onGetAllEvent(event)
+    })
 }
 
 const onGetAllEvent = event => {
@@ -46,9 +49,32 @@ const onShowEvent = event => {
   event.preventDefault()
   const id = $('#id_event').val()
   console.log(id)
-  api.getEvent(id)
-    .then(ui.getEventSuccess)
-    .catch(ui.getEventFailure)
+  if (id !== '') {
+    api.getEvent(id)
+      .then(ui.getEventSuccess)
+      .catch(ui.getEventFailure)
+      .then(() => {
+        $('#show-modal').removeClass('modalShow')
+      })
+  } else {
+    $('#message').text('Please enter ID')
+    $('#show-modal').removeClass('modalShow')
+  }
+}
+
+const onShowEventName = event => {
+  event.preventDefault()
+  const name = $('#name_event').val()
+  console.log(name)
+  let eventList = []
+  if (name !== '') {
+    eventList = store.all.events.filter(event => event.name === name)
+    ui.showEventName(eventList)
+  } else {
+    $('#message').text('Please enter NAME of event')
+    $('#show-modal-name').removeClass('modalShow')
+    $('.content').empty()
+  }
 }
 const onEditEvent = event => {
   event.preventDefault()
@@ -64,11 +90,18 @@ const onEditEvent = event => {
       onGetAllEvent(event)
     })
 }
+const onHideEvent = (event) => {
+  event.preventDefault()
+  ui.hideEvents()
+}
+
 module.exports = {
   onCreateEvent,
   onGetAllEvent,
   onDeleteEvent,
   onEditEvent,
   openEditModal,
-  onShowEvent
+  onShowEvent,
+  onHideEvent,
+  onShowEventName
 }

@@ -37,13 +37,30 @@
 
         <div id='in' class="hide">
           <!-- change password -->
+          <button id="change-button" class="btn btn-secondary">change-password</button>
+
+          <!-- The Modal -->
+          <div id="change-modal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div class="form-group">
+                <form id="change-password">
+                  <input class="form-control" type="password" name="passwords[old]" placeholder="Old Password">
+                  <input class="form-control" type="password" name="passwords[new]" placeholder="New Password">
+                  <button class="btn btn-secondary" type='submit'> Change </button>
+                </form>
+              </div>
+            </div>
+          </div>
+            <!--
           <div class="form-group">
             <form id="change-password">
               <input class="form-control" type="password" name="passwords[old]" placeholder="Old Password">
               <input class="form-control" type="password" name="passwords[new]" placeholder="New Password">
               <button class="btn btn-secondary" type='submit'> Change </button>
             </form>
-          </div>
+          </div> -->
           <!-- signout -->
           <div class="form-group">
             <form id="sign-out" >
@@ -70,7 +87,8 @@
 
 
             </div> <!-- end of my modal-->
-            <button id="show-button" class="btn btn-secondary">Find an Event</button>
+            <button id="show-button" class="btn btn-secondary">Find an Event by ID</button>
+            <button id="show-button-name" class="btn btn-secondary">Find an Event by Name</button>
 
             <!-- The Modal -->
             <div id="show-modal" class="modal">
@@ -79,7 +97,22 @@
                 <span class="close">&times;</span>
                 <div class="form-group">
                   <form id="show-event-form">
-                    <input class="form-control" id="id_event" type="text" placeholder="Name of event" >
+                    <input class="form-control" id="id_event" type="text" placeholder="ID of event" >
+                    <button class="btn btn-secondary">Get-Event</button>
+                  </form>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div id="show-modal-name" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="form-group">
+                  <form id="show-event-form-name">
+                    <input class="form-control" id="name_event" type="text" placeholder="Name of event" >
                     <button class="btn btn-secondary">Get-Event</button>
                   </form>
                 </div>
@@ -105,18 +138,16 @@
                 </div>
               </div>
             </div> <!-- end of edit modal-->
-
+          <button id="hide-all" class="btn btn-secondary"> Hide all the Events</button>
           </div>
 
           <div>
             <button class="btn btn-secondary" id="get-all">Get all</button>
           </div>
+          <main>
+            <div id="content" class="content hide"></div>
+          </main>
         </div> <!-- end of inside group -->
-
-        <main>
-          <div id="content" class="content"></div>
-        </main>
-
     </body>
 
 

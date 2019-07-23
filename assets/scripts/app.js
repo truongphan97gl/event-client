@@ -19,9 +19,18 @@ $(() => {
   $('.content').on('click', '.edit-button', eventEvents.openEditModal)
   $('#edit-event-form').on('submit', eventEvents.onEditEvent)
   $('#show-event-form').on('submit', eventEvents.onShowEvent)
+  $('#show-event-form-name').on('submit', eventEvents.onShowEventName)
 
+  $('#hide-all').on('click', eventEvents.onHideEvent)
+
+  $('#change-button').on('click', () => {
+    $('#change-modal').addClass('modalShow')
+  })
   $('#show-button').on('click', () => {
     $('#show-modal').addClass('modalShow')
+  })
+  $('#show-button-name').on('click', () => {
+    $('#show-modal-name').addClass('modalShow')
   })
   $('#create-test').on('click', () => {
     $('#myModal').addClass('modalShow')
@@ -30,5 +39,8 @@ $(() => {
     $('#myModal').removeClass('modalShow')
     $('#edit-event').removeClass('modalShow')
     $('#show-modal').removeClass('modalShow')
+    $('#show-modal-name').removeClass('modalShow')
+    $('#change-modal').removeClass('modalShow')
+    $('form').trigger('reset')
   })
 })

@@ -44,15 +44,33 @@ const passEditElement = data => {
 }
 
 const getEventSuccess = data => {
-  console.log(data)
   const oneEventHtml = oneEventTemplate({event: data.event})
+  $('#message').text('Get event successfully')
   $('.content').html(oneEventHtml)
 }
-
+const showEventName = data => {
+  if (data.length !== 0) {
+    const showEventsHtml = showEventsTemplate({ events: data })
+    $('.content').html(showEventsHtml)
+    $('#message').text('Get event successfully')
+  } else {
+    $('#message').text('Name is not exist.')
+    $('.content').empty()
+  }
+  $('#show-modal-name').removeClass('modalShow')
+}
 const getEventFailure = data => {
-  console.log('Some thing happends')
+  $('#message').text('Failed to get Event')
 }
 
+const hideEvents = () => {
+  if ($('.content').html() === '') {
+    $('#message').text('There are nothing to hide')
+  } else {
+    $('.content').empty()
+    $('#message').text('Hide Events Successfully')
+  }
+}
 module.exports = {
   createEventSuccess,
   getAllEventSuccess,
@@ -61,5 +79,7 @@ module.exports = {
   editEventFailure,
   editEventSuccess,
   getEventSuccess,
-  getEventFailure
+  getEventFailure,
+  hideEvents,
+  showEventName
 }
