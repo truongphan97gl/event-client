@@ -12,17 +12,85 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Event Saver</h1>
+      <h1 class="title">Event Saver</h1>
 
       <div id="message" class="alert alert-primary"></div>
-
       <div id="out">
+            <div class="form">
+
+          <ul class="tab-group">
+            <li class="tab active"><a href="#signup">Sign Up</a></li>
+            <li class="tab"><a href="#login">Log In</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div id="signup">
+              <h1>Sign Up for Free</h1>
+
+              <form id="sign-up">
+
+              <div class="field-wrap">
+                <label>
+                  Email Address<span class="req">*</span>
+                </label>
+                <input class="white-font" name="credentials[email]" type="email"required autocomplete="off"/>
+              </div>
+
+              <div class="field-wrap">
+                <label>
+                  Set A Password<span class="req">*</span>
+                </label>
+                <input class="white-font" name="credentials[password]" type="password"required autocomplete="off"/>
+              </div>
+              <div class="field-wrap">
+                <label>
+                  Set A Password<span class="req">*</span>
+                </label>
+                <input class="white-font" name="credentials[password_confirmation]" type="password"required autocomplete="off"/>
+              </div>
+
+              <button type="submit" class="button button-block"/>Get Started</button>
+
+              </form>
+
+            </div>
+
+            <div id="login">
+              <h1>Welcome Back!</h1>
+
+              <form id="sign-in">
+
+                <div class="field-wrap">
+                <label>
+                  Email Address<span class="req">*</span>
+                </label>
+                <input class="white-font" name="credentials[email]" type="email"required autocomplete="off"/>
+              </div>
+
+              <div class="field-wrap">
+                <label>
+                  Password<span class="req">*</span>
+                </label>
+                <input  class="white-font" name="credentials[password]" type="password"required autocomplete="off"/>
+              </div>
+
+              <button class="button button-block"/>Log In</button>
+
+              </form>
+
+            </div>
+
+          </div><!-- tab-content -->
+
+    </div> <!-- /form -->
+      </div>
+      <!-- <div id="out">
         <div class="form-group">
             <form id="sign-up">
-              <input class="form-control" name="credentials[email]" type="text" placeholder="email" >
+              <input  name="credentials[email]" type="text" placeholder="email" >
               <input class="form-control" name="credentials[password]" type="password" placeholder="password">
               <input class="form-control" name="credentials[password_confirmation]" type="password" placeholder="password">
-              <button class="btn btn-secondary" type='submit'> Sign Up </button>
+              <button class="button button-block" type='submit'> Sign Up </button>
             </form>
           </div>
 
@@ -30,14 +98,14 @@
             <form id="sign-in">
               <input class="form-control" name="credentials[email]" type="text" placeholder="email">
               <input class="form-control" name="credentials[password]" type="password" placeholder="password">
-              <button class="btn btn-secondary" type='submit'> Sign IN </button>
+              <button class="button button-block" type='submit'> Sign IN </button>
             </form>
           </div>
-        </div> <!-- End of outside section-->
+        </div> <!-- End of outside section--> -->
 
         <div id='in' class="hide">
           <!-- change password -->
-          <button id="change-button" class="btn btn-secondary">change-password</button>
+          <button id="change-button" class="button button-block small">change-password</button>
 
           <!-- The Modal -->
           <div id="change-modal" class="modal">
@@ -46,9 +114,9 @@
               <span class="close">&times;</span>
               <div class="form-group">
                 <form id="change-password">
-                  <input class="form-control" type="password" name="passwords[old]" placeholder="Old Password">
-                  <input class="form-control" type="password" name="passwords[new]" placeholder="New Password">
-                  <button class="btn btn-secondary" type='submit'> Change </button>
+                  <input type="password" name="passwords[old]" placeholder="Old Password">
+                  <input type="password" name="passwords[new]" placeholder="New Password">
+                  <button class="button button-block small" type='submit'> Change </button>
                 </form>
               </div>
             </div>
@@ -58,15 +126,15 @@
             <form id="change-password">
               <input class="form-control" type="password" name="passwords[old]" placeholder="Old Password">
               <input class="form-control" type="password" name="passwords[new]" placeholder="New Password">
-              <button class="btn btn-secondary" type='submit'> Change </button>
+              <button class="button button-block" type='submit'> Change </button>
             </form>
           </div> -->
           <!-- signout -->
           <div class="form-group">
             <form id="sign-out" >
-              <button class="btn btn-secondary">Sign-Out</button>
+              <button class="button button-block small">Sign-Out</button>
             </form>
-            <button id="create-test" class="btn btn-secondary">Create Event</button>
+            <button id="create-test" class="button button-block small">Create Event</button>
 
             <!-- The Modal -->
             <div id="myModal" class="modal">
@@ -74,21 +142,22 @@
               <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="form-group">
+
                   <form id="create-event">
-                    <input class="form-control" name="event[name]" type="text" placeholder="name" >
-                    <input class="form-control" name="event[date]" type="text" placeholder="date" >
-                    <input class="form-control" name="event[duration]" type="text" placeholder="duration" >
-                    <input class="form-control" name="event[place]" type="text" placeholder="place" >
-                    <input class="form-control" name="event[note]" type="text" placeholder="note" >
-                    <button class="btn btn-secondary">Create-Event</button>
+                    <input  name="event[name]" type="text" placeholder="name" >
+                    <input  name="event[date]" type="date" placeholder="date" >
+                    <input  name="event[duration]" type="text" placeholder="duration" >
+                    <input  name="event[place]" type="text" placeholder="place" >
+                    <input  name="event[note]" type="text" placeholder="note" >
+                    <button class="button button-block small">Create-Event</button>
                   </form>
                 </div>
               </div>
 
 
             </div> <!-- end of my modal-->
-            <button id="show-button" class="btn btn-secondary">Find an Event by ID</button>
-            <button id="show-button-name" class="btn btn-secondary">Find an Event by Name</button>
+            <button id="show-button" class="button button-block small">Find an Event by ID</button>
+            <button id="show-button-name" class="button button-block small">Find an Event by Name</button>
 
             <!-- The Modal -->
             <div id="show-modal" class="modal">
@@ -97,8 +166,8 @@
                 <span class="close">&times;</span>
                 <div class="form-group">
                   <form id="show-event-form">
-                    <input class="form-control" id="id_event" type="text" placeholder="ID of event" >
-                    <button class="btn btn-secondary">Get-Event</button>
+                    <input  id="id_event" type="text" placeholder="ID of event" >
+                    <button class="button button-block small">Get-Event</button>
                   </form>
                 </div>
               </div>
@@ -112,8 +181,8 @@
                 <span class="close">&times;</span>
                 <div class="form-group">
                   <form id="show-event-form-name">
-                    <input class="form-control" id="name_event" type="text" placeholder="Name of event" >
-                    <button class="btn btn-secondary">Get-Event</button>
+                    <input  id="name_event" type="text" placeholder="Name of event" >
+                    <button class="button button-block small">Get-Event</button>
                   </form>
                 </div>
               </div>
@@ -127,22 +196,23 @@
               <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="form-group">
+
                   <form id="edit-event-form">
-                    <input id="inputEditName" class="form-control" name="event[name]" type="text" placeholder="name" >
-                    <input id="inputEditDate" class="form-control" name="event[date]" type="text" placeholder="date" >
-                    <input id="inputEditDuration" class="form-control" name="event[duration]" type="text" placeholder="duration" >
-                    <input id="inputEditPlace" class="form-control" name="event[place]" type="text" placeholder="place" >
-                    <input id="inputEditNote" class="form-control" name="event[note]" type="text" placeholder="note" >
-                    <button class="btn btn-secondary" >Edit-Event</button>
+                    <input id="inputEditName"  name="event[name]" type="text" placeholder="name" >
+                    <input id="inputEditDate"  name="event[date]" type="date" placeholder="date" >
+                    <input id="inputEditDuration"  name="event[duration]" type="text" placeholder="duration" >
+                    <input id="inputEditPlace"  name="event[place]" type="text" placeholder="place" >
+                    <input id="inputEditNote"  name="event[note]" type="text" placeholder="note" >
+                    <button class="button button-block small" >Edit-Event</button>
                   </form>
                 </div>
               </div>
             </div> <!-- end of edit modal-->
-          <button id="hide-all" class="btn btn-secondary"> Hide all the Events</button>
+          <button id="hide-all" class="button button-block small"> Hide all the Events</button>
           </div>
 
           <div>
-            <button class="btn btn-secondary" id="get-all">Get all</button>
+            <button class="button button-block small" id="get-all">Get all</button>
           </div>
           <main>
             <div id="content" class="content hide"></div>

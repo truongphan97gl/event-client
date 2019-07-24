@@ -3,6 +3,17 @@ const store = require('../store')
 const api = require('./api.js')
 const showEventsTemplate = require('../templates/event-listing.handlebars')
 const oneEventTemplate = require('../templates/one-event.handlebars')
+
+const getWithoutmessage = () => {
+  api.getAllEvent()
+    .then(showContent)
+}
+const showContent = responseData => {
+  const showEventsHtml = showEventsTemplate({ events: responseData.events })
+  store.data = responseData
+  store.all = responseData
+  $('.content').html(showEventsHtml)
+}
 const createEventSuccess = responseData => {
   $('#message').text('Create event successfull')
   $('#create-event').removeClass('hide')
@@ -20,19 +31,19 @@ const createEventFailure = responseData => {
 const editEventSuccess = data => {
   $('#message').text('Edit event successful')
   $('#edit-event').removeClass('modalShow')
-
   $('form').trigger('reset')
 }
 const editEventFailure = data => {
   $('#message').text('Failed to edit event')
   $('form').trigger('reset')
 }
+
 const getAllEventSuccess = responseData => {
   const showEventsHtml = showEventsTemplate({ events: responseData.events })
   store.data = responseData
   store.all = responseData
-  $('#message').text('Get all events successfully')
   $('.content').html(showEventsHtml)
+  $('form').trigger('reset')
 }
 
 const passEditElement = data => {
@@ -58,9 +69,11 @@ const showEventName = data => {
     $('.content').empty()
   }
   $('#show-modal-name').removeClass('modalShow')
+  $('form').trigger('reset')
 }
 const getEventFailure = data => {
   $('#message').text('Failed to get Event')
+  $('form').trigger('reset')
 }
 
 const hideEvents = () => {
@@ -70,6 +83,7 @@ const hideEvents = () => {
     $('.content').empty()
     $('#message').text('Hide Events Successfully')
   }
+  $('form').trigger('reset')
 }
 module.exports = {
   createEventSuccess,
@@ -81,5 +95,6 @@ module.exports = {
   getEventSuccess,
   getEventFailure,
   hideEvents,
-  showEventName
+  showEventName,
+  getWithoutmessage
 }

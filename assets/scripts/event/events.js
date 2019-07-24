@@ -12,9 +12,7 @@ const onCreateEvent = event => {
   api.createEvent(data)
     .then(ui.createEventSuccess)
     .catch(ui.createEventFailure)
-    .then(() => {
-      onGetAllEvent(event)
-    })
+    .then(ui.getWithoutmessage)
 }
 
 const onGetAllEvent = event => {
@@ -23,6 +21,9 @@ const onGetAllEvent = event => {
   api.getAllEvent()
     .then(ui.getAllEventSuccess)
     .catch(ui.getAllEventFailure)
+    .then(() => {
+      $('#message').text('Get all events successfully')
+    })
 }
 
 const onDeleteEvent = event => {
@@ -35,6 +36,7 @@ const onDeleteEvent = event => {
       onGetAllEvent(event)
     })
     .catch(console.log)
+    .then(ui.getWithoutmessage)
 }
 const openEditModal = event => {
   $('#edit-event').addClass('modalShow')
@@ -60,6 +62,7 @@ const onShowEvent = event => {
     $('#message').text('Please enter ID')
     $('#show-modal').removeClass('modalShow')
   }
+  $('.content').empty()
 }
 
 const onShowEventName = event => {
@@ -86,9 +89,7 @@ const onEditEvent = event => {
   api.updateEvent(store)
     .then(ui.editEventSuccess)
     .catch(ui.editEventFailure)
-    .then(() => {
-      onGetAllEvent(event)
-    })
+    .then(ui.getWithoutmessage)
 }
 const onHideEvent = (event) => {
   event.preventDefault()

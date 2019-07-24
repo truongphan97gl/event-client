@@ -2,7 +2,6 @@ const store = require('../store')
 const api = require('./api.js')
 const eventApi = require('../event/api.js')
 const signUpSuccessful = responseData => {
-  $('#message').text('You are signed up successfully')
   $('form').trigger('reset')
   $('#inside').removeClass('hide')
   api.signIn(store.signUp)
@@ -11,6 +10,9 @@ const signUpSuccessful = responseData => {
 const signInAuto = responseData => {
   $('#message').text('You are sign up successfully')
   store.user = responseData.user
+  $('.content').empty()
+  $('#in').removeClass('hide')
+  $('#out').addClass('hide')
 }
 const signUpFailure = () => {
   $('#message').text('You failed to signed up ')
@@ -23,7 +25,6 @@ const signInSuccessful = responseData => {
   eventApi.getAllEvent()
     .then((responseData) => {
       store.all = responseData
-      console.log(store.all)
     })
   $('.content').empty()
   $('#in').removeClass('hide')
@@ -53,9 +54,11 @@ const signOutAuto = () => {
 }
 const changeSuccessful = responseData => {
   $('#message').text('You are changed password successfully')
+  $('#change-modal').removeClass('modalShow')
   $('#in').addClass('hide')
   $('#out').removeClass('hide')
   $('form').trigger('reset')
+
   api.signOut()
     .then(signOutAuto)
   $('form').trigger('reset')

@@ -1,9 +1,14 @@
 body {
-  background: lighten($info, 50%);
+  // background: lighten($info, 50%);
   min-height: 100vh;
   padding: 5rem 0 1rem;
 }
-
+.title {
+  font-size: 7em;
+  background: -webkit-linear-gradient(#42275a, #734b6d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 main {
   @include make-container;
   @include make-container-max-widths;
@@ -31,6 +36,8 @@ main {
 
   .content {
     @include make-row;
+    margin-top: 2em;
+    opacity: 0.8;
 
     &:empty {
       &::before {

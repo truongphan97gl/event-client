@@ -2,6 +2,10 @@
   {{log event}}
   <section data-id="{{event.id}}">
     <div class="item">
+      <h6>ID:</h6>
+      <h3>
+          {{event.id}}
+      </h3>
       <h6>Name:</h6>
       <h3>
         {{#if event.name}}
@@ -10,9 +14,13 @@
           No name provided.
         {{/if}}
       </h3>
-      <h6>ID:</h6>
+      <h6>Place:</h6>
       <h3>
-          {{event.id}}
+        {{#if event.place}}
+          {{event.place}}
+        {{else}}
+          No place provided.
+        {{/if}}
       </h3>
     <h6>Date:</h6>
     <h3>
@@ -42,8 +50,8 @@
     <!-- <button class="btn btn-danger" data-id="{{book.id}}">
       Remove
     </button> -->
-    <button data-id="{{event.id}}" class="edit-button">EDIT EVENT!</button>
-    <button data-id="{{event.id}}" class="remove-button">DELETE EVENT!</button>
+    <button data-id="{{event.id}}" class="edit-button button button-block small">EDIT EVENT!</button>
+    <button data-id="{{event.id}}" class="remove-button button button-block small">DELETE EVENT!</button>
   </section>
 
 {{/each}}
