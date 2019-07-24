@@ -8,19 +8,19 @@ const signUpSuccessful = responseData => {
     .then(signInAuto)
 }
 const signInAuto = responseData => {
-  $('#message').text('You are sign up successfully')
+  $('#message').html('You are sign up successfully')
   store.user = responseData.user
   $('.content').empty()
   $('#in').removeClass('hide')
   $('#out').addClass('hide')
 }
 const signUpFailure = () => {
-  $('#message').text('You failed to signed up ')
+  $('#message').html('You failed to signed up ')
   $('form').trigger('reset')
 }
 
 const signInSuccessful = responseData => {
-  $('#message').text('You are signed in successfully')
+  $('#message').html('You are signed in successfully')
   store.user = responseData.user
   eventApi.getAllEvent()
     .then((responseData) => {
@@ -33,12 +33,12 @@ const signInSuccessful = responseData => {
 }
 
 const signInFailure = response => {
-  $('#message').text('You failed to signed in ')
+  $('#message').html('You failed to signed in ')
   $('form').trigger('reset')
 }
 
 const signOutSuccessful = () => {
-  $('#message').text('You signed out successfully ')
+  $('#message').html('You signed out successfully ')
   $('#in').addClass('hide')
   $('#out').removeClass('hide')
   $('form').trigger('reset')
@@ -47,13 +47,13 @@ const signOutSuccessful = () => {
 }
 
 const signOutFailure = () => {
-  $('#message').text('You failed to signed out ')
+  $('#message').html('You failed to signed out ')
 }
 const signOutAuto = () => {
-  $('#message').text('You changed password successfully ! You need to sign in again !! ')
+  $('#message').html('You changed password successfully ! You need to sign in again !! ')
 }
 const changeSuccessful = responseData => {
-  $('#message').text('You are changed password successfully')
+  $('#message').html('You are changed password successfully')
   $('#change-modal').removeClass('modalShow')
   $('#in').addClass('hide')
   $('#out').removeClass('hide')
@@ -65,7 +65,7 @@ const changeSuccessful = responseData => {
 }
 
 const changeFailure = response => {
-  $('#message').text('You failed to change password ')
+  $('#message').html('You failed to change password ')
   $('form').trigger('reset')
 }
 
