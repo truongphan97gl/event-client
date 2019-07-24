@@ -8,7 +8,6 @@ const onCreateEvent = event => {
   event.preventDefault()
 
   const data = getFormFields(event.target)
-  console.log(data)
   api.createEvent(data)
     .then(ui.createEventSuccess)
     .catch(ui.createEventFailure)
@@ -35,7 +34,9 @@ const onDeleteEvent = event => {
     .then(() => {
       onGetAllEvent(event)
     })
-    .catch(console.log)
+    .catch(() => {
+      $('#message').text('Failed to delete.')
+    })
     .then(ui.getWithoutmessage)
 }
 const openEditModal = event => {
@@ -50,7 +51,6 @@ const openEditModal = event => {
 const onShowEvent = event => {
   event.preventDefault()
   const id = $('#id_event').val()
-  console.log(id)
   if (id !== '') {
     api.getEvent(id)
       .then(ui.getEventSuccess)
@@ -68,7 +68,6 @@ const onShowEvent = event => {
 const onShowEventName = event => {
   event.preventDefault()
   const name = $('#name_event').val()
-  console.log(name)
   let eventList = []
   if (name !== '') {
     eventList = store.all.events.filter(event => event.name === name)

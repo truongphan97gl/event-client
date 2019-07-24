@@ -43,7 +43,6 @@ const deleteEvent = function (id) {
 }
 
 const updateEvent = data => {
-  console.log('the id in api: ', data.event.id)
   return $.ajax({
     url: config.apiUrl + '/events/' + data.event.id,
     data: data,
