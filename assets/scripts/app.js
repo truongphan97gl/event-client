@@ -7,6 +7,7 @@
 // require('./example')
 const userEvents = require('./user/events')
 const eventEvents = require('./event/events')
+const store = require('./store')
 $(() => {
   // your JS code goes here
   $('#sign-up').on('submit', userEvents.onSignUp)
@@ -25,6 +26,7 @@ $(() => {
 
   $('#change-button').on('click', () => {
     $('#change-modal').addClass('modalShow')
+    $('#email-user').val(store.user.email)
   })
   $('#show-button').on('click', () => {
     $('#show-modal').addClass('modalShow')

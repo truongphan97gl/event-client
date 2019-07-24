@@ -29,7 +29,6 @@ const signInSuccessful = responseData => {
   $('.content').empty()
   $('#in').removeClass('hide')
   $('#out').addClass('hide')
-  $('#email-user').val(store.user.email)
   // show some things
 }
 
