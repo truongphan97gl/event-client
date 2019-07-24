@@ -5,16 +5,24 @@
 
 
 ## Repository
+  - Foront-end github repo: https://github.com/truongphan97gl/event-client
   - Front-end deploy repo: https://truongphan97gl.github.io/event-client/
   - Back-end deploy repo: https://blooming-falls-52758.herokuapp.com/
   - back-end github repo: https://github.com/truongphan97gl/back-end
 
 ## Technology used:
-- JavaScript
-- jQuery
--  AJAX
--  HTML
--  CSS
+### Font-end:
+  - JavaScript
+  - jQuery
+  -  AJAX
+  -  HTML
+  -  CSS
+
+### Back-end:
+  - Ruby
+  - Ruby on Rails
+  - preSQL
+
 
 ## Future improvement:
 - Can shared event with other people.
@@ -22,8 +30,6 @@
 
 ## ERD
 https://i.imgur.com/OnaDFbq.jpg
-
-## Wireframe:
 
 ## My Planing
 #### Planning
@@ -57,7 +63,7 @@ https://i.imgur.com/OnaDFbq.jpg
 ## Wireframes and user stories.
 
 #### Wireframes :
-https://i.imgur.com/bmqA8QT.jpg
+- https://i.imgur.com/bmqA8QT.jpg
 
 #### User stories:
   - As an guest, I want to have ability to register new account.
