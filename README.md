@@ -2,7 +2,8 @@
 
 ## Purpose:
 - it is an application for user to save the event that they have in the future.
-
+## How it works:
+- When the user log in, the user can create the event that they want to save in the website. Also, they can edit, find, and delete the event.
 
 ## Repository
   - Foront-end github repo: https://github.com/truongphan97gl/event-client
