@@ -16,7 +16,6 @@ const onCreateEvent = event => {
 
 const onGetAllEvent = event => {
   event.preventDefault()
-
   api.getAllEvent()
     .then(ui.getAllEventSuccess)
     .catch(ui.getAllEventFailure)

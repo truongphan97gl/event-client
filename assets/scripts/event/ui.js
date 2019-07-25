@@ -38,8 +38,8 @@ const editEventFailure = data => {
 }
 
 const getAllEventSuccess = responseData => {
-  const showEventsHtml = showEventsTemplate({ events: responseData.events })
   store.data = responseData
+  const showEventsHtml = showEventsTemplate({ events: responseData.events })
   $('.content').html(showEventsHtml)
   $('form').trigger('reset')
 }
