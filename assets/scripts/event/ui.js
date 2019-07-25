@@ -11,7 +11,6 @@ const getWithoutmessage = () => {
 const showContent = responseData => {
   const showEventsHtml = showEventsTemplate({ events: responseData.events })
   store.data = responseData
-  store.all = responseData
   $('.content').html(showEventsHtml)
 }
 const createEventSuccess = responseData => {
@@ -41,7 +40,6 @@ const editEventFailure = data => {
 const getAllEventSuccess = responseData => {
   const showEventsHtml = showEventsTemplate({ events: responseData.events })
   store.data = responseData
-  store.all = responseData
   $('.content').html(showEventsHtml)
   $('form').trigger('reset')
 }
@@ -65,7 +63,7 @@ const showEventName = data => {
     $('.content').html(showEventsHtml)
     $('#message').text('Get event successfully')
   } else {
-    $('#message').text('Name is not exist.')
+    $('#message').text('Name does not exist.')
     $('.content').empty()
   }
   $('#show-modal-name').removeClass('modalShow')

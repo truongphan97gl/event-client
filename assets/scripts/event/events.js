@@ -70,7 +70,7 @@ const onShowEventName = event => {
   const name = $('#name_event').val()
   let eventList = []
   if (name !== '') {
-    eventList = store.all.events.filter(event => event.name === name)
+    eventList = store.data.events.filter(event => event.name === name)
     ui.showEventName(eventList)
   } else {
     $('#message').text('Please enter NAME of event')
