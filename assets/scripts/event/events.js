@@ -30,13 +30,13 @@ const onDeleteEvent = event => {
   const id = target.data('id')
 
   api.deleteEvent(id)
+    .then(ui.getWithoutmessage)
     .then(() => {
-      onGetAllEvent(event)
+      $('#message').text('Delete event successfully.')
     })
     .catch(() => {
       $('#message').text('Failed to delete.')
     })
-    .then(ui.getWithoutmessage)
 }
 const openEditModal = event => {
   $('#edit-event').addClass('modalShow')
