@@ -12,6 +12,19 @@ const onSignUp = event => {
     .then(ui.signUpSuccessful)
     .catch(ui.signUpFailure)
 }
+const onGuestLogin = event => {
+  event.preventDefault()
+  const formData = {
+    credentials:
+    {
+      email: 'guest@guest',
+      password: 'guest'
+    }
+  }
+  api.signIn(formData)
+    .then(ui.signInSuccessful)
+    .catch(ui.signInFailure)
+}
 
 const onSignIn = event => {
   event.preventDefault()
@@ -42,5 +55,6 @@ module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onChangePassword
+  onChangePassword,
+  onGuestLogin
 }

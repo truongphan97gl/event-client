@@ -42,8 +42,6 @@ const signOutSuccessful = () => {
   $('#in').addClass('hide')
   $('#out').removeClass('hide')
   $('form').trigger('reset')
-  api.signOut()
-    .then(signOutAuto)
 }
 
 const signOutFailure = () => {

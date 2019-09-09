@@ -13,6 +13,8 @@ $(() => {
   $('#sign-up').on('submit', userEvents.onSignUp)
   $('#change-password').on('submit', userEvents.onChangePassword)
   $('#sign-in').on('submit', userEvents.onSignIn)
+  $('#guest-login').on('click', userEvents.onGuestLogin)
+
   $('#sign-out').on('submit', userEvents.onSignOut)
   $('#create-event').on('submit', eventEvents.onCreateEvent)
   $('#get-all').on('click', eventEvents.onGetAllEvent)
